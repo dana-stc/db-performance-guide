@@ -1,0 +1,22 @@
+spring:
+  main:
+    banner-mode: off
+    web-application-type: none      # this is a console app, not a web server
+  datasource:
+    url: jdbc:h2:mem:perf;DB_CLOSE_DELAY=-1;QUERY_CACHE_SIZE=0
+    username: sa
+    password:
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: none                # tables are created by schema.sql
+    properties:
+      hibernate.generate_statistics: true   # lets us COUNT the SQL queries Hibernate runs (lesson 5)
+  sql:
+    init:
+      mode: always
+
+logging:
+  level:
+    root: WARN
+    com.example.dbperf: INFO
